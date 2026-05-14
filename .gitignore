@@ -1,0 +1,8 @@
+node_modules/
+paladium/
+palamod/
+dist/
+build/
+*.log
+.DS_Store
+Thumbs.db
