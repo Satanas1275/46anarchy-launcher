@@ -36,6 +36,13 @@
         </div>
     </div>
 
+    <div class="news-section">
+        <h2>News</h2>
+        <div class="news-list" id="newsList">
+            <p style="text-align:center; color:#aaa;">Loading...</p>
+        </div>
+    </div>
+
     <div class="modal-overlay" id="settingsModal">
         <div class="modal">
             <h2>Settings</h2>
@@ -114,6 +121,34 @@ async function updateServerStatus() {
 
 updateServerStatus();
 setInterval(updateServerStatus, 15000);
+
+async function loadNews() {
+    try {
+        const res = await fetch('https://46anarchy.vercel.app/cdn/news.json');
+        const news = await res.json();
+        const container = document.getElementById('newsList');
+        container.innerHTML = '';
+
+        news.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'news-item';
+            div.innerHTML = `
+                <div class="news-header">
+                    <span class="news-title">${item.title}</span>
+                    <span class="news-category ${item.category}">${item.category}</span>
+                </div>
+                <div class="news-date">${item.date}</div>
+                <div class="news-content">${item.content}</div>
+                ${item.video ? `<div class="news-video"><a href="${item.video}" target="_blank">Watch video</a></div>` : ''}
+            `;
+            container.appendChild(div);
+        });
+    } catch (err) {
+        console.error('Failed to load news:', err);
+    }
+}
+
+loadNews();
 
 async function updateButton() {
     const btn = document.querySelector(".main-button button p");

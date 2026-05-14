@@ -11,6 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 100px;
 }
 
 body::before {
@@ -109,7 +110,10 @@ button {
 }
 
 .action {
-    margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -117,6 +121,7 @@ button {
     width: 100%;
     background-color: rgb(29, 29, 29);
     box-sizing: border-box;
+    z-index: 100;
 }
 
 .settings {
@@ -244,4 +249,74 @@ button {
     padding: 10px;
     margin-bottom: 5px;
     border-style: dashed;
+}
+
+.news-section {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px 0;
+}
+
+.news-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.news-item {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.news-item .news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.news-item .news-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.news-item .news-date {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.news-item .news-category {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.news-item .news-category.event {
+    background: #4a90d9;
+}
+
+.news-item .news-category.annonce {
+    background: #e67e22;
+}
+
+.news-item .news-content {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.news-item .news-video {
+    margin-top: 8px;
+}
+
+.news-item .news-video a {
+    color: #4a90d9;
+    font-size: 12px;
 }
