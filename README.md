@@ -1,6 +1,6 @@
 # 46 Anarchy Launcher
 
-A community-made Minecraft launcher for Paladium.
+A community-made Minecraft launcher for 46 Anarchy server with Paladium official ModPack.
 
 ## Installation
 
